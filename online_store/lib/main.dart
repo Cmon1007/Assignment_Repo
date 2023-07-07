@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:online_store/screen/display_products.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:online_store/provider/product_provider.dart';
 import 'package:online_store/screen/home_screen.dart';
+import 'package:provider/provider.dart';
 void main()
 {
   runApp(const MyApp());
@@ -10,10 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return ChangeNotifierProvider(create: (context) => ProductProvider(),
+    child: GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Online Store",
       home: HomeScreen(),
+    ),
     );
   }
 }
